@@ -10,6 +10,7 @@
 <body>
     <h1>随机找对象，找到谁全看天意</h1>
     <div id="food">
+        <div id="box"></div>
         <div id="close"></div>
         <ul>
             <li>
@@ -73,7 +74,8 @@
         var oLi = document.getElementsByTagName("li");
         var oBtn = document.getElementById("btn");
         var oPic = document.getElementById("pic");
-        var oImg = document.getElementsByTagName("img");
+        var oDt =document.getElementsByTagName("dt");
+        var oBox = document.getElementById("box");
         var num = i = t = 0; //设置一个计数器 顺时针
         oBtn.onclick = function(){
             oPic.style.transform = "scale(0.6)";
@@ -88,13 +90,11 @@
                 i++; //每循环一个Li标签 +1
                 setTimeout(view,200);
                 console.log("动态的=："+i);
-                
              }else{
                  i=0; //为下一次 抽奖做 准备 
-                oImg[t].style.transform="scale(1.2)";
+                 setTimeout(a,2000);
+                 setTimeout(b,4000);
                 oPic.style.transform = "scale(0.8)"; 
-                oImg[t].style.transform="scale(0.8)";
-                 oImg[t].style.transition = "1s";
                 oPic.style.transition = "1s";
              }
              //二丶动画
@@ -102,16 +102,19 @@
                  for(var j=0; j<oLi.length-1;j++){
                     oLi[j].style.border="2px solid #000";
                     oLi[j].style.background="#fff";
-                     
                 } 
                  oLi[t].style.border="2px solid #f00";
                  oLi[t].style.background="rgba(255,0,0,.4)";
-             
                  t++;
              }else{
-               
                  t=0;
-                 
+             }
+             function a(){
+                oBox.style.display = "block";
+                 oBox.innerHTML = oDt[t-1].innerHTML;
+             }
+             function b(){
+                oBox.style.display = "none"; 
              }
         }
     </script>

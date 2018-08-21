@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{margin: 0;padding: 0;}
+        #btn{position: relative; top: -145px; left: -282px;}
+    </style>
+</head>
+<body>
+    <img src="images/index.png" id="pic">
+    <img src="images/point.png" id="btn">
+    <script>
+        var oBtn=document.getElementById("btn");
+        var oPic=document.getElementById("pic");
+        var a=0;
+        var i=0;
+        var b=0;
+        var c=0;
+        var p=['谢谢参与','10猫币','一等奖','2猫币','100元免费流量包','30元免费流量包','20猫币','20元免费流量包','10元免费流量包','5猫币'];
+        oBtn.onclick=function(){
+            a=(parseInt(Math.random()*10)*36)+720;
+            i+=a;
+            oPic.style.transform = "rotateZ("+i+"deg)";
+            oPic.style.transition = "1s"; 
+            b=i%360;
+            c=b/36;
+            function view(){
+           alert(p[c]);
+        }
+           setTimeout(view,4000);
+        
+        }
+        
+    </script>
+</body>
+</html>
